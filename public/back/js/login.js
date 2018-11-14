@@ -58,32 +58,41 @@ $(function(){
 
 //提交
 
-$("#form").on("success.form.bv",function(e){
-  //组织默认的表单提交
+$('#form').on("success.form.bv", function( e ) {
+  // 阻止默认的表单提交
   e.preventDefault();
 
-  //通过ajx提交
+  // 通过 ajax 提交
   $.ajax({
-    type:'post',
+    type: "post",
     url: "/employee/employeeLogin",
-    data:$("#form").serialize(),
-    dataType:"json",
-    success:function(info){
-      console.log(info);
-      if(info.success){
+    // $('#form').serialize() 表单序列化, 快速收集 设置了 name 属性的表单元素值
+    data: $('#form').serialize(),
+    dataType: "json",
+    success: function( info ) {
+      console.log( info );
+      if ( info.success ) {
         location.href = "index.html";
       }
-      if(info.error === 1000){
-         $("#form").data("bootstrapValidator").updateStatus("username","INVALID","callback");
-        }
-        if(info.error === 1001){
-          $("#form").data("bootstrapValidator").updateStatus("password","INVALID","callback");
 
+      if ( info.error === 1000 ) {
+        // alert("用户名不存在");
+        // 调用插件提供的方法, 将用户名input状态 更新成校验失败状态
+        // updateStatus
+        // 参数1: 校验字段  username/password
+        // 参数2: 校验状态  NOT_VALIDATED(未校验), VALIDATING(校验中), INVALID(失败) or VALID(成功)
+        // 参数3: 校验规则, 用来配置错误时的提示信息
+        $('#form').data("bootstrapValidator").updateStatus("username", "INVALID", "callback");
+      }
+
+      if ( info.error === 1001 ) {
+        // alert("密码错误");
+        $('#form').data("bootstrapValidator").updateStatus("password", "INVALID", "callback");
       }
     }
   })
-});
 
+});
 
 //重置按钮
 $('[type="reset"]').click(function(){
