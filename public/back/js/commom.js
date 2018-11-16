@@ -4,9 +4,9 @@ $(document).ajaxStart(function(){
   NProgress.start();
 });
 //结束时关闭进度条
-  $(document).ajaxStart(function(){
+  $(document).ajaxStop(function(){
     setTimeout(function(){
-      NProgress.start();
+      NProgress.done();
     },500);
   });
 
@@ -34,11 +34,11 @@ $(document).ajaxStart(function(){
       });
 
        //模态框的按钮点击事件
-       $("#logoutModal").click(function(){
+       $("#loginoutBtn").click(function(){
          
             $.ajax({
               type:"get",
-              url:"",
+              url:"/employee/employeeLogout",
               dataType:"json",
               success:function(info){
                 console.log(info);
