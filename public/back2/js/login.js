@@ -53,7 +53,7 @@ $(function(){
   e.preventDefault();//重置
   $.ajax({
     type:"post",
-    url:"",
+    url:"/employee/employeeLogin",
     data:$("#form").serialize(),
     dataType:"json",
     success:function(info){
