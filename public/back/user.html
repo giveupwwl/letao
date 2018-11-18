@@ -64,32 +64,62 @@
         <i class="glyphicon glyphicon-log-out"></i>
       </a>
     </div>
-    <!-- 链接导航 -->
-    <ol class="breadcrumb mt_20">
-      <li>
-        <a href="index.html">管理系统</a>
-      </li>
-      <li class="active">首页</li>
-    </ol>
-    <!-- 容器 -->
-    <div class="lt_content">
-      <table class="table table-bordered table-hover">
-        <thead>
-          <tr>
-            <th>序号</th>
-            <th>用户名</th>
-            <th>手机号</th>
-            <th>状态</th>
-            <th>操作</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- 挖个坑 -->
-        </tbody>
-      </table>
+    <div class="container-fluid">
+      <!-- 链接导航 -->
+      <ol class="breadcrumb mt_20">
+        <li>
+          <a href="index.html">管理系统</a>
+        </li>
+        <li class="active">首页</li>
+      </ol>
+      <!-- 容器 -->
+      <div class="lt_content">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>序号</th>
+              <th>用户名</th>
+              <th>手机号</th>
+              <th>状态</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- 挖个坑 -->
+          </tbody>
+        </table>
+      <!-- 分页容器 -->
+      <div class="text-right">
+        <ul id="paginator"></ul>
+      </div>
+      </div>
+
     </div>
   </div>
 
+  <!-- 用户模态框 -->
+  <div class="modal fade" tabindex="-1" id="userModal">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+          <h4 class="modal-title">温馨提示</h4>
+        </div>
+        <div class="modal-body">
+          <p class="red">
+            <i class="glyphicon glyphicon-info-sign"></i>
+            <span>你确定要执行此操作吗？</span>
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button type="button" class="btn btn-primary" id="confirmBtn">确定</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- 模态框 -->
   <div class="modal fade" tabindex="-1" id="logoutModal">
     <div class="modal-dialog modal-sm">
@@ -114,17 +144,19 @@
     </div>
   </div>
 
+
+
+
+
+
+
   <!-- 准备模板 -->
   <script type="text/html" id="tmp">
     {{ each rows v i }}
       <tr>
-        <td>{{ v.id }}</td>
+        <td>{{ i+1+(page-1)*size }}</td>
         <td>{{ v.username }}</td>
         <td>{{ v.mobile }}</td>
-        <!-- isDelete 标记当前用户状态的  1  0
-             1: 表示当前用户 正常启用
-             0: 表示当前用户 被禁用
-        -->
         <td>{{ v.isDelete === 1 ? "正常" : "已禁用" }}</td>
         <td>
           {{ if v.isDelete === 1 }}
@@ -144,7 +176,7 @@
   <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
   <script src="./lib/nprogress/nprogress.js"></script>
   <script src="./lib/artTemplate/template-web.js"></script>
-  <script src="./lib/echarts/echarts.min.js"></script>
+  <script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
   <!-- 用户判断是否登录 -->
   <script src="./js/commom.js"></script>
   <script src="./js/isLogin.js"></script>

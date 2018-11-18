@@ -1,6 +1,6 @@
 $(function () {
   //初始化echarts_left实例
-  var echarts_left = echarts.init(document.querySelector(".echarts_left"));
+  var echarts_left = echarts.init(document.getElementById(".echarts_left"));
 
   //指定图表
   var option1 = {
