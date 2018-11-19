@@ -104,20 +104,16 @@
   <div class="modal fade" tabindex="-1" id="addModal">
     <div class="modal-dialog modal-sm">
       <div class="modal-content">
+        <!-- 头部 -->
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+          <h4 class="modal-title">添加分类</h4>
+        </div>
+        <!-- 添加更改内容的地方 -->
+        <div class="modal-body">
         <form id="form">
-          <!-- 头部 -->
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">
-              <span>&times;</span>
-            </button>
-            <h4 class="modal-title">添加分类</h4>
-          </div>
-          <!-- 添加更改内容的地方 -->
-          <div class="modal-body">
-            <!-- 在每一行外层要套一个 form-group 父元素 (规范)
-                 将来表单校验依赖于这个父元素, 实现添加提示信息
-                 如果没有套一个 form-group, 表单校验插件会报错
-            -->
             <div class="form-group">
               <!-- 下拉菜单 -->
               <div class="dropdown">
@@ -153,6 +149,7 @@
               <img src="./images/none.png" style="height: 100px" alt="">
               <input type="hidden" name="brandLogo">
             </div>
+          </form>
   
   
           </div>
@@ -160,9 +157,8 @@
           <!-- data-dismiss="modal" 可以用于关闭模态框 -->
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-            <button type="submit" class="btn btn-primary">添加</button>
+            <button type="submit" class="btn btn-primary" form="form">添加</button>
           </div>
-        </form>
       </div>
     </div>
   </div>

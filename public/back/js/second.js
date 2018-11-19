@@ -9,16 +9,16 @@ $(function(){
   function render(){
     $.ajax({
       type:"get",
-      url: "/category/querySecondCategoryPaging",
+      url:"/category/querySecondCategoryPaging",
       data:{
         page:currentPage,
         pageSize:pageSize
       },
-      dataType:"json",
+      // dataType:"json",
       success:function(info){
         console.log(info);
         var htmlStr = template("secondTpl",info);
-        $("tbody").html(htmlStr);
+        $(" .lt_content tbody").html(htmlStr);
 
         //页面初始化
         $('#paginator').bootstrapPaginator({
@@ -130,6 +130,24 @@ $(function(){
     }
   })
 
-
+  //6.注册校验成功,ajax提交
+  $("#form").on("success.form.bv",function(e){
+      // 阻止默认
+      e.preventDefault();
+      $.ajax({
+        url:"/category/addSecondCategory",
+        type:"post",
+        data:$("#form").serialize(),
+        success:function(info){
+            console.log(info);
+            $("#addModal").modal("hide");
+            $("#form").data("bootstrapValidator").resetForm(true);
+            currentPage = 1;
+            render();
+            $("#dropdownText").text("请选择1级分类");
+            $("#imgBox img").attr("src","images/none.png");
+        }
+      })
+  })
 
 })

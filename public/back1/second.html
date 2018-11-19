@@ -93,7 +93,7 @@
     <!-- 内部的模态框 -->
     <div class="modal-dialog modal-sm">
       <div class="modal-content">
-         <form id="form">
+      
         <!-- 头部 -->
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
@@ -101,39 +101,49 @@
         </div>
         <!-- 中间 -->
         <div class="modal-body">
-          <div class="form-group">
-             <!-- 下拉菜单 -->
-             <div class="dropdown">
-                <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
-                  <span id="dropdownText">请选择一级分类</span>
-                  <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                  <!-- 挖个坑 -->
-                </ul>
-              </div>
-          <input type="hidden" name="categoryName">
-          <input type="hidden" name="hot" value="1">
-        </div>
-          <div class="form-group">
-          <input type="text" name="brandName" class="form-control" placeholder="请输入二级分类">
-        </div>
-          <div class="form-group">
-            <label for="fileupload" class="btn btn-default">上传图片</label>
-          <input type="file" name="picl" data-url="/category/addSecondCategoryPic"  id="fileupload" style="display: none">
-        </div>
-
-          <div class="form-group" id="imgBox">
-            <img src="./images/none.png" style="height: 100px" alt="">
-          <input type="hidden" name="brandLogo" >
-        </div>
+            <form id="form">
+                <div class="form-group">
+                  <!-- 下拉菜单 -->
+                  <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                      <span id="dropdownText">请选择一级分类</span>
+                      <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <!-- 挖个坑 -->
+                    </ul>
+                  </div>
+      
+                  <input name="categoryId" type="hidden">
+      
+                  <!-- 火热的品牌 所有的品牌都火热 -->
+                  <input type="hidden" name="hot" value="1" >
+                </div>
+      
+                <div class="form-group">
+                  <input type="text" name="brandName" class="form-control" placeholder="请输入二级分类">
+                </div>
+      
+                <div class="form-group">
+                  <label class="btn btn-default" for="fileupload">上传图片</label>
+                  <!--
+                    1. data-url 指定接口地址           将来给插件去获取的, 去发送ajax的
+                    2. name     指定后台接收的参数名
+                  -->
+                  <input type="file" name="pic1" data-url="/category/addSecondCategoryPic" id="fileupload" style="display: none">
+                </div>
+      
+                <div class="form-group" id="imgBox">
+                  <img src="./images/none.png" style="height: 100px" alt="">
+                  <input type="hidden" name="brandLogo">
+                </div>
+              </form>
       </div>
         <!-- 底部 -->
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-          <button type="submit" class="btn btn-primary">添加</button>
+          <button type="submit" class="btn btn-primary" form="form">添加</button>
         </div>           
-      </form>
       </div>
     </div>
   </div>
