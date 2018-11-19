@@ -140,7 +140,7 @@ img {
   float: left;
   width: 48%;
   margin-bottom: 10px;
-  text-align: center;
+  text-align: center; 
 }
 .lt_product_item a {
   display: block;

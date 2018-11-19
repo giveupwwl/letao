@@ -21,16 +21,38 @@
         <li><a href="user.html"><i  class="glyphicon glyphicon-user"></i><span>用户管理</span></a></li>
         <li>
           <a href="javascript:;" class="category"><i class="glyphicon glyphicon-list"></i><span>分类管理</span></a>
-           <a href="first.html">一级分类</a>
-           <a href="second.html">二级分类</a>
-        
+           <div class="child">
+              <a href="first.html">一级分类</a>
+              <a href="second.html">二级分类</a>
+           </div>  
         </li>
         <li><a href="product.html"><i class="glyphicon glyphicon-tags"></i><span>商品管理</span></a></li>
       </ul>
     </div>
   </div>
-  <!-- 右侧头部 -->
-  <!-- 右侧内容 -->
+  <div class="lt_main">
+    <!-- 右侧头部 -->
+    <div class="lt_topbar">
+        <a href="javascript:;" class="icon_left pull-left"><i class="glyphicon glyphicon-align-justify"></i></a>
+        <a href="javascript:;" class="icon_right pull-right"><i class="glyphicon glyphicon-log-out"></i></a>
+    </div>
+      <!-- 响应式版心 -->
+    <div class="container-fluid">
+       <!-- 连接 -->
+       <ol class="breadcrumb mt-20">
+          <li><a href="index.html">管理系统</a></li>
+          <li class="active">首页</li>
+        </ol>
+        <!-- 图表 -->
+        <div class="lt_content">
+            <!-- 左侧的柱状图 -->
+            <div class="echarts_left pull-left"></div>
+            <!-- 右侧的饼状图 -->
+            <div class="echarts_right pull-right"></div>
+        </diV>
+    </div>
+    
+  </div>
  
 
   <script src="./lib/jquery/jquery.min.js"></script>
