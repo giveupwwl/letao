@@ -36,35 +36,11 @@ $(function() {
            $('.lt_product').html(htmlStr);
          }
        })
-     },1000);
+     },500);
 
   }
   // 功能二:点击搜索按钮,实现搜索
  $('.search_btn').click(function() {
-    // 获取搜索框的值
-    var key = $(".search_input").val();
-
-    // 获取数组
-    var jsonStr = localStorage.getItem("search_list");
-    var arr = JSON.parse( jsonStr );
-
-    // 1. 不能重复
-    var index = arr.indexOf( key );
-    if ( index > -1 ) {
-      // 已经存在, 删除该项
-      arr.splice( index, 1 );
-    }
-    // 2. 不能超过10个
-    if ( arr.length >= 10 ) {
-      arr.pop();
-    }
-
-    // 将搜索关键字添加到 arr 最前面
-    arr.unshift( key );
-
-    // 转存到本地存储中
-    localStorage.setItem( "search_list", JSON.stringify( arr ) );
-
     render();
   });
 
